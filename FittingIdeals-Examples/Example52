@@ -1,0 +1,21 @@
+LIB "ring.lib";
+ring t=0,(X,Y,Z,W,T),(wp(2,3,5,6,7));
+ring s=0,(x,y,z,w),(wp(2,3,5,1));
+ideal p=0;
+map f=t,x,y,z,w6+x2w2+yw3-zw,w7+x3w+y2w;
+setring t;
+ideal h=preimage(s,f,p);
+ideal jh=jacob(h);
+timer=1;
+setring s;
+ideal g=x,y,z,w6+x2w2+yw3-zw,w7+x3w+y2w;
+matrix jf=jacob(g);
+ideal rf=std(minor(jf,4));
+ideal fjh=f(jh);
+ideal d21=quotient(fjh,rf);
+setring t;
+ideal fit1=std(preimage(s,f,d21)); 
+ideal fit2=std(quotient(fit1*fit1,h));
+ideal fit3=std(quotient(fit2*fit2,fit1));
+ideal fit4=std(quotient(fit3*fit3,fit2));
+

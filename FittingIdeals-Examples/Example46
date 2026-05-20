@@ -1,0 +1,15 @@
+timer=1;
+LIB "ring.lib"; 
+ring t=0,(X,Y,Z,A,B,C,U,V,W),(wp(4,5,6,2,3,4,2,3,5));
+ring s=0,(x,y,a,b,c,u,v,w),(wp(4,1,2,3,4,2,3,5));
+ideal p=0;
+map f=t,x,y5-xy+ay3+by2+cy,y6+xy2+uy4+vy3+wy,a,b,c,u,v,w;
+ideal g=x,y5-xy+ay3+by2+cy,y6+xy2+uy4+vy3+wy,a,b,c,u,v,w;
+matrix jF=jacob(g);
+ideal RF=std(minor(jF,8));
+setring t;
+ideal h=preimage(s,f,p);
+ideal jh=jacob(h);
+ideal FRF=preimage(s,f,RF);
+ideal fit1F=quotient(jh,FRF);
+

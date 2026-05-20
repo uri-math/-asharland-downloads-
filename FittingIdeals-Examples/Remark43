@@ -1,0 +1,16 @@
+ring t=0,(X,Y,Z),(wp(4,5,6));
+ring s=0,(x,y),(wp(4,1));
+ideal p=0;
+map f=t,x,y5-xy,y6+xy2;
+setring t;
+ideal h=preimage(s,f,p);
+ideal jh=jacob(h);
+ideal a=jh[1];
+qring q=std(h);
+ideal jh=imap(t,jh);
+ideal a=imap(t,a);
+ideal cond=quotient(a,quotient(a*jh,jh));
+setring t;
+ideal fit1=imap(q,cond);
+fit1;
+

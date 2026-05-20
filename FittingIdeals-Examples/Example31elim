@@ -1,0 +1,14 @@
+ring t=0,(X,Y,Z),(wp(4,5,6));
+ring s=0,(x,y),(wp(4,1));
+def st=s+t;
+setring st;
+ideal I1=X-x,Y-(y5-xy),Z-(y6+xy2);
+ideal h=eliminate(I1,xy);
+
+
+
+
+
+
+
+

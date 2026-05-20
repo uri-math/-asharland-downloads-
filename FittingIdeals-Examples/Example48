@@ -1,0 +1,24 @@
+LIB "ring.lib";
+ring t=0,(X,Y,Z),(wp(4,5,6));
+ring s=0,(x,y),(wp(4,1));
+ideal p=0;
+map f=t,x,y5-xy,y6+xy2;
+setring t;
+ideal h=preimage(s,f,p);
+ideal jh=jacob(h);
+ideal fit1=radical(jh);
+qring q=std(h);
+ideal fit1=imap(t,fit1);
+list resfit1=mres(fit1,0);
+def lambda0=resfit1[2];  
+print(lambda0);  
+def pr1=multcol(lambda0,1,-1);
+def pr2=multcol(pr1,2,-1);
+def pr3=multcol(pr2,3,-1);
+def pr4=multcol(pr3,4,-1);
+map i=q,X,-Y,Z;
+def pr5=i(pr4);
+def lambda=addcol(pr5,1,-X,5);
+print(lambda);
+
+
