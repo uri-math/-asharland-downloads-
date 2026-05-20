@@ -9,7 +9,7 @@ To run the codes, copy the files to a directory in \$PATH, and use the following
   
 execute(read(\"Example31elim\"));  
   
-(Use *read(\"Example31elim\"); *to have Singular print the contents of the file.)  
+(Use read(\"Example31elim\"); to have Singular print the contents of the file.)  
   
 Alternatively, open the files in any of the commonly used text editors, and copy and paste into Singular directly.  
   
